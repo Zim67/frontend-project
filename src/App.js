@@ -2,8 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
-import FlightList from './components/FlightList';
-import AdminPanel from './components/AdminPanel';
+import AdminPage from './components/AdminPage';
 
 const App = () => {
     return (
@@ -11,9 +10,8 @@ const App = () => {
             <NavBar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/arrivals" element={<FlightList type="arrivals" />} />
-                <Route path="/departures" element={<FlightList type="departures" />} />
-                <Route path="/admin" element={<AdminPanel />} />
+                <Route path="/admin" element={<AdminPage />} />
+
             </Routes>
         </>
     );
