@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './styles.css'; // Ensure this path is correct
 
 const NavBar = () => {
     return (
-        <nav>
+        <nav className="navbar">
+            <a href="/" className="logo">FlightMgmt</a>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/arrivals">Arrivals</Link></li>
@@ -15,3 +17,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
