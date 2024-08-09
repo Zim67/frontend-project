@@ -114,13 +114,17 @@ h1, h2 {
     margin-top: 20px;
 }
 
-.new-flight-form input, .arrivals-page input, .departures-page input {
+.new-flight-form input, .new-flight-form select, .arrivals-page input, .departures-page input {
     display: block;
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+.new-flight-form select {
+    width: 100%;
 }
 
 button {

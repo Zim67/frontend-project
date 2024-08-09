@@ -73,8 +73,6 @@ const AdminPage = () => {
                         <option key={aircraft.id} value={aircraft.id}>{aircraft.registrationNumber}</option>
                     ))}
                 </select>
-                <br/>
-                <br/>
                 <select name="fromAirportId" onChange={handleChange} defaultValue="">
                     <option value="" disabled>Select an leaving airport</option>
                     {airports.map(airport => (
@@ -83,8 +81,6 @@ const AdminPage = () => {
                 </select>
                 <input type="text" name="fromGate" placeholder="From Gate" onChange={handleChange} />
                 <input type="datetime-local" name="leavingTime" placeholder="Leaving Time" onChange={handleChange} />
-                <br/>
-                <br/>
                 <select name="toAirportId" onChange={handleChange} defaultValue="">
                     <option value="" disabled>Select an arriving airport</option>
                     {airports.map(airport => (
@@ -93,8 +89,6 @@ const AdminPage = () => {
                 </select>
                 <input type="text" name="toGate" placeholder="To Gate" onChange={handleChange} />
                 <input type="datetime-local" name="arrivingTime" placeholder="Arriving Time" onChange={handleChange} />
-                <br/>
-                <br/>
                 <button onClick={handleCreateFlight}>Create Flight</button>
             </div>
             <div className="flights-list">
@@ -103,7 +97,6 @@ const AdminPage = () => {
                     {flights.map(flight => (
                         <li key={flight.id}>
                             <span>{flight.aircraft.id} - {flight.from.name} to {flight.to.name}</span>
-                            <span> </span>
                             <button onClick={() => handleDeleteFlight(flight.id)}>Delete</button>
                         </li>
                     ))}
