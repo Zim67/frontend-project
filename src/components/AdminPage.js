@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import './styles.css';
 
 const AdminPage = () => {
@@ -23,17 +23,17 @@ const AdminPage = () => {
     }, []);
 
     const fetchFlights = async () => {
-        const response = await axios.get('http://localhost:8080/flights');
+        const response = await axios.get(`/flights`);
         setFlights(response.data);
     };
 
     const fetchAirports = async () => {
-        const response = await axios.get('http://localhost:8080/airports');
+        const response = await axios.get(`/airports`);
         setAirports(response.data);
     }
 
     const fetchAircrafts = async () => {
-        const response = await axios.get('http://localhost:8080/aircrafts');
+        const response = await axios.get(`/aircrafts`);
         setAircrafts(response.data);
     }
 
@@ -45,7 +45,7 @@ const AdminPage = () => {
     };
 
     const handleCreateFlight = async () => {
-        await axios.post('http://localhost:8080/flights/create', {
+        await axios.post(`/flights/create`, {
             aircraft: Number.parseInt(newFlight.aircraftId),
             to: Number.parseInt(newFlight.toAirportId),
             from: Number.parseInt(newFlight.fromAirportId),
@@ -58,7 +58,7 @@ const AdminPage = () => {
     };
 
     const handleDeleteFlight = async (id) => {
-        await axios.delete(`http://localhost:8080/flights/${id}`);
+        await axios.delete(`/flights/${id}`);
         fetchFlights();
     };
 

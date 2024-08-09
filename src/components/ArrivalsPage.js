@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import './styles.css';
 
 const ArrivalsPage = () => {
@@ -9,12 +9,12 @@ const ArrivalsPage = () => {
 
     const fetchArrivals = async () => {
         if (airportId === "") return
-        const response = await axios.get(`http://localhost:8080/flights/arrivals/${airportId}`);
+        const response = await axios.get(`/flights/arrivals/${airportId}`);
         setArrivals(response.data);
     };
 
     const fetchAirports = async () => {
-        const response = await axios.get('http://localhost:8080/airports');
+        const response = await axios.get(`/airports`);
         setAirports(response.data);
     }
 
