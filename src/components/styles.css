@@ -114,7 +114,9 @@ h1, h2 {
     margin-top: 20px;
 }
 
-.new-flight-form input, .new-flight-form select, .arrivals-page input, .departures-page input {
+.new-flight-form input, .new-flight-form select, 
+.arrivals-page input, .arrivals-page select, 
+.departures-page input, .departures-page select {
     display: block;
     width: calc(100% - 20px);
     padding: 10px;
@@ -123,7 +125,7 @@ h1, h2 {
     border-radius: 4px;
 }
 
-.new-flight-form select {
+.new-flight-form select, .arrivals-page select, .departures-page select {
     width: 100%;
 }
 

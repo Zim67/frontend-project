@@ -3,28 +3,39 @@ import axios from 'axios';
 import './styles.css';
 
 const ArrivalsPage = () => {
+    const [airports, setAirports] = useState([]);
     const [arrivals, setArrivals] = useState([]);
     const [airportId, setAirportId] = useState('');
 
     const fetchArrivals = async () => {
+        if (airportId === "") return
         const response = await axios.get(`http://localhost:8080/flights/arrivals/${airportId}`);
         setArrivals(response.data);
     };
 
+    const fetchAirports = async () => {
+        const response = await axios.get('http://localhost:8080/airports');
+        setAirports(response.data);
+    }
+
+    useEffect(() => {
+        fetchAirports();
+    }, []);
+
     return (
         <div className="arrivals-page">
             <h1>Arrivals Page</h1>
-            <input
-                type="text"
-                value={airportId}
-                placeholder="Airport ID"
-                onChange={(e) => setAirportId(e.target.value)}
-            />
+            <select onChange={(e) => setAirportId(e.target.value)} defaultValue="">
+                <option value="" disabled>Select an airport</option>
+                {airports.map(airport => (
+                    <option key={airport.id} value={airport.id}>{airport.name}</option>
+                ))}
+            </select>
             <button onClick={fetchArrivals}>Fetch Arrivals</button>
             <ul>
                 {arrivals.map(arrival => (
                     <li key={arrival.id}>
-                        {arrival.fromAirportId} - {arrival.toAirportId} (Arriving at: {arrival.arrivingTime})
+                        {arrival.from.name} - {arrival.to.name} (Arriving at: {new Date(arrival.arrivingTime).toLocaleString()})
                     </li>
                 ))}
             </ul>
