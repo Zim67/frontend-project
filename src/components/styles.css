@@ -164,3 +164,7 @@ ul li button:hover {
     background-color: #c82333;
 }
 
+.navbar ul li {
+    background: transparent;
+    border: none;
+}
