@@ -16,7 +16,7 @@ const AdminAirportPage = () => {
     }, []);
 
     const fetchAirports = async () => {
-        const response = await axios.get(`/airports`);
+        const response = await axios.get(`http://localhost:8080/airports`);
         setAirports(response.data);
     }
 
@@ -30,12 +30,12 @@ const AdminAirportPage = () => {
 
     const handleCreateAirport = async () => {
         if (airports.find((value) => value.code === newAirport.code)) return
-        await axios.post(`/airports/create`, newAirport);
+        await axios.post(`http://localhost:8080/airports/create`, newAirport);
         fetchAirports();
     };
 
     const handleDeleteAirport = async (id) => {
-        await axios.delete(`/airports/${id}`);
+        await axios.delete(`http://localhost:8080/airports/${id}`);
         fetchAirports();
     };
 

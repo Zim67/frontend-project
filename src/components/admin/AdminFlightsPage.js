@@ -23,17 +23,17 @@ const AdminFlightsPage = () => {
     }, []);
 
     const fetchFlights = async () => {
-        const response = await axios.get(`/flights`);
+        const response = await axios.get(`http://localhost:8080/flights`);
         setFlights(response.data);
     };
 
     const fetchAirports = async () => {
-        const response = await axios.get(`/airports`);
+        const response = await axios.get(`http://localhost:8080/airports`);
         setAirports(response.data);
     }
 
     const fetchAircrafts = async () => {
-        const response = await axios.get(`/aircrafts`);
+        const response = await axios.get(`http://localhost:8080/aircrafts`);
         setAircrafts(response.data);
     }
 
@@ -45,7 +45,7 @@ const AdminFlightsPage = () => {
     };
 
     const handleCreateFlight = async () => {
-        await axios.post(`/flights/create`, {
+        await axios.post(`http://localhost:8080/flights/create`, {
             aircraft: Number.parseInt(newFlight.aircraftId),
             to: Number.parseInt(newFlight.toAirportId),
             from: Number.parseInt(newFlight.fromAirportId),
@@ -58,7 +58,7 @@ const AdminFlightsPage = () => {
     };
 
     const handleDeleteFlight = async (id) => {
-        await axios.delete(`/flights/${id}`);
+        await axios.delete(`http://localhost:8080/flights/${id}`);
         fetchFlights();
     };
 

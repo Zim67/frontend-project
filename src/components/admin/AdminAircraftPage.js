@@ -16,7 +16,7 @@ const AdminAircraftPage = () => {
     }, []);
 
     const fetchAircrafts = async () => {
-        const response = await axios.get(`/aircrafts`);
+        const response = await axios.get(`http://localhost:8080/aircrafts`);
         setAircrafts(response.data);
     }
 
@@ -29,12 +29,12 @@ const AdminAircraftPage = () => {
     };
 
     const handleCreateAircraft = async () => {
-        await axios.post(`/aircrafts/create`, newAircraft);
+        await axios.post(`http://localhost:8080/aircrafts/create`, newAircraft);
         fetchAircrafts();
     };
 
     const handleDeleteAircraft = async (id) => {
-        await axios.delete(`/aircrafts/${id}`);
+        await axios.delete(`http://localhost:8080/aircrafts/${id}`);
         fetchAircrafts();
     };
 

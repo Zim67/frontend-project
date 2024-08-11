@@ -9,12 +9,12 @@ const DeparturesPage = () => {
 
     const fetchDepartures = async () => {
         if (airportId === "") return
-        const response = await axios.get(`/flights/departures/${airportId}`);
+        const response = await axios.get(`http://localhost:8080/flights/departures/${airportId}`);
         setDepartures(response.data);
     };
 
     const fetchAirports = async () => {
-        const response = await axios.get(`/airports`);
+        const response = await axios.get(`http://localhost:8080/airports`);
         setAirports(response.data);
     }
 
